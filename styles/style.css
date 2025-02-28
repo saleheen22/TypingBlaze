@@ -1,0 +1,112 @@
+body {
+    background-color: rgba(15, 179, 224, 0.178);
+    margin: 0;
+    padding: 0;
+    color: #0d6073;
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    height: 100vh;
+    gap: 5vh;
+    font-family: 'Work Sans', sans-serif;
+  }
+  
+  ul {
+    margin-top: 10vh;
+    list-style: none;
+  }
+  
+  .nav {
+    padding-left: 15%;
+  }
+  
+  .logo {
+    width: 15vw;
+    height: auto;
+  }
+  
+  ul li {
+    padding: 12px;
+    margin: 25px 0;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 45%;
+  }
+  
+  #typing-test {
+    background-color: #0d6073;
+    color: white;
+  }
+  
+  ul li:hover {
+    background-color: #0d6073;
+    color: white;
+  }
+  
+  .test {
+    margin-top: 6vh;
+  }
+  #test-select{
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 2vh;
+    font-size: 18px;
+  }
+  #choose-test-label,
+  #test-description {
+    display: block;
+    text-align: center;
+    margin-top: 12vh;
+    font-size: 24px;
+    margin-bottom: 2vh;
+  }
+  
+  .custom-select {
+    position: relative;
+    display: block;
+    text-align: center;
+    margin-bottom: 3vh;
+  }
+  
+  .custom-select select {
+    width: 50%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  #start-test {
+    display: block;
+    margin: 5vh auto;
+    padding: 20px;
+    border-radius: 20px;
+    color: white;
+    background-color: #0d6073;
+    cursor: pointer;
+    font-size: 18px;
+  }
+   
+
+  #timer{
+    margin: 0 auto;
+    display: block;
+    background-color: #0d6073;
+   
+    
+    text-align: center;
+    width: 15vw;
+    height: 5vh;
+    font-size: 25px;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    color: yellow;
+    font-weight: bolder;
+    
+  }
