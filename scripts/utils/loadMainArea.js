@@ -1,11 +1,11 @@
-import { getItemsFromLocalStorage } from "../localStorage.js";
-import { texts } from "../text.js"
+
+import { getAllTests } from "./getTests.js";
 
 const renderMainAreaUI = (mainTestArea) => {
-    const standardTests = texts;
-    const customTests = getItemsFromLocalStorage("customTests");
-    const allTests = [ ...customTests, ...standardTests];
-
+    // const standardTests = texts;
+    // const customTests = getItemsFromLocalStorage("customTests");
+    // const allTests = [ ...customTests, ...standardTests];
+    const allTests = getAllTests();
     
     mainTestArea.innerHTML = `
     <h2 class="test-header">Test Your typing genius!!</h2>

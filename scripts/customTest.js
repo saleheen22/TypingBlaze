@@ -28,11 +28,8 @@ export const createCustomTest = (createCustomTestNav , mainTestArea) => {
         contentTextArea.id = "customTestContent";
         contentTextArea.rows = 10;
         formDiv.appendChild(contentTextArea);
-    
-
         const addBtn = document.createElement("button");
         addBtn.id = "addCustomTestBtn";
-
         formDiv.appendChild(addBtn);
         addBtn.textContent = "Add Test";
         addBtn.addEventListener("click", () => {
@@ -47,11 +44,7 @@ export const createCustomTest = (createCustomTestNav , mainTestArea) => {
             }
 
         })
-
         mainTestArea.appendChild(formDiv);
-
-
-
 
     })
     
