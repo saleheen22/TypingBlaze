@@ -20,11 +20,13 @@ body {
   
   .nav {
     padding-left: 15%;
+    cursor: pointer;
   }
   
   .logo {
     width: 15vw;
     height: auto;
+    cursor: pointer;
   }
   
   ul li {
@@ -49,6 +51,11 @@ body {
   
   .test {
     margin-top: 6vh;
+  }
+  .test-header {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 45px;
   }
   #test-select{
     display: block;
@@ -110,3 +117,38 @@ body {
     font-weight: bolder;
     
   }
+  .custom-test-form label {
+    font-size: 28px;
+    display: block;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .custom-test-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .custom-test-form input[type="text"] ,.custom-test-form textarea {
+    width: 80%;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+#addCustomTestBtn{
+  display: block;
+    margin: 5vh auto;
+    padding: 20px;
+    border-radius: 20px;
+    color: white;
+    background-color: #0d6073;
+    cursor: pointer;
+    font-size: 18px;
+    width: 15vw;
+}
