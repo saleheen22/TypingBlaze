@@ -6,6 +6,10 @@ export const getAllTests = () => {
     const customTests = getItemsFromLocalStorage("customTests");
     return [ ...customTests, ...standardTests];
 }
+export const getCustomTests = () => {
+    const customTests = getItemsFromLocalStorage("customTests");
+    return [...customTests];
+};
 export const getSingleTest = (tittle) => {
     
     const check = getAllTests().find(test => test.tittle === tittle);

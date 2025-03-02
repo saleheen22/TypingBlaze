@@ -13,3 +13,11 @@ export const saveToLocalStorageTestResult = (key, testResult) => {
     const existingResults = getItemsFromLocalStorage(key);
     existingResults.push(testResult);
     localStorage.setItem(key, JSON.stringify(existingResults))}
+
+    export const deleteCustomTest = (key, index) => {
+        const existingTests = getItemsFromLocalStorage(key);
+        if (index >= 0 && index < existingTests.length) {
+          existingTests.splice(index, 1);
+          localStorage.setItem(key, JSON.stringify(existingTests));
+        }
+      };
