@@ -1,20 +1,18 @@
 
+import { typingTest } from "../typingTest.js";
 import { getAllTests } from "./getTests.js";
 
 const renderMainAreaUI = (mainTestArea) => {
-    // const standardTests = texts;
-    // const customTests = getItemsFromLocalStorage("customTests");
-    // const allTests = [ ...customTests, ...standardTests];
+
     const allTests = getAllTests();
     
     mainTestArea.innerHTML = `
     <h2 class="test-header">Test Your typing genius!!</h2>
-      <div id="timer"></div>
  
       <label id="choose-test-label" for="test-select">Choose a Test</label>
       <select id="test-select">
-  ${allTests.map((test, index) => `
-    <option value="${index}">${test.tittle}</option>
+  ${allTests.map((test) => `
+    <option value="${test.tittle}">${test.tittle}</option>
   `).join('')}
 </select>
 
@@ -27,7 +25,15 @@ const renderMainAreaUI = (mainTestArea) => {
         </select>
       </div>
 
-      <button id="start-test">Start Test</button>`
+      <button id="start-test">Start Test</button>`;
+      document.getElementById("start-test").addEventListener("click", () => {
+        const testSelect = document.getElementById("test-select").value;
+        const testDuration = document.getElementById("test-duration").value;
+        console.log("Test select:", testSelect, "Test duration:", testDuration);
+        // Now call typingTest with the retrieved values.
+        // Note: Make sure typingTest does not re-read the DOM after clearing mainTestArea.
+        typingTest(mainTestArea, testSelect, testDuration);
+    });
 }
 
 export const loadMainArea = (mainTestArea,logo, typingTestNav ) => {
