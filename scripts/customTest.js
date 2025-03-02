@@ -9,6 +9,7 @@ export const createCustomTest = (createCustomTestNav , mainTestArea) => {
         heading.className = "test-header";
         heading.textContent = "Create Your Own Test";
         mainTestArea.innerHTML = ``;
+   
       
 
         formDiv.appendChild(heading);

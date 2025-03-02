@@ -9,3 +9,7 @@ existingTests.push(newTest);
 localStorage.setItem(key, JSON.stringify(existingTests));
 
 }
+export const saveToLocalStorageTestResult = (key, testResult) => {
+    const existingResults = getItemsFromLocalStorage(key);
+    existingResults.push(testResult);
+    localStorage.setItem(key, JSON.stringify(existingResults))}

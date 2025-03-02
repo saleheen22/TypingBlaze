@@ -19,7 +19,7 @@ const renderMainAreaUI = (mainTestArea) => {
       <label id="test-description" for="test-duration">Choose your Test Duration</label>
       <div class="custom-select">
         <select name="typing test" id="test-duration">
-          <option value="60">1 Minute</option>
+          <option value="10">1 Minute</option>
           <option value="180">3 Minute</option>
           <option value="300">5 Minute</option>
         </select>
@@ -40,4 +40,5 @@ export const loadMainArea = (mainTestArea,logo, typingTestNav ) => {
     document.addEventListener("DOMContentLoaded",() => renderMainAreaUI(mainTestArea));
     logo.addEventListener("click",() => renderMainAreaUI(mainTestArea));
     typingTestNav.addEventListener("click",() => renderMainAreaUI(mainTestArea));
+    
 }

@@ -1,6 +1,8 @@
 // part-1 showing custom test and standard test
 
 import { createCustomTest } from "./customTest.js";
+import { renderResults } from "./typingTest.js";
+
 import { loadMainArea } from "./utils/loadMainArea.js";
 
 
@@ -17,10 +19,13 @@ const typingTestNav  = document.getElementById("typing-test");
 
 
 
+
+
+
 const mainTestArea = document.getElementById("main-test-area");
 
 loadMainArea(mainTestArea, logo, typingTestNav);
 
 createCustomTest(createCustomTestNav, mainTestArea);
-
+renderResults();
 

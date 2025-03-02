@@ -1,4 +1,6 @@
+import {  getItemsFromLocalStorage, saveToLocalStorageTestResult } from "./localStorage.js";
 import { getSingleTest } from "./utils/getTests.js";
+import { calculateWPM } from "./utils/TestResult.js";
 
 let timer;
 // Constants
@@ -8,12 +10,18 @@ const PREVIOUS_WORDS_VISIBLE = 5;
 // textpaggase div
 let timeLeft ;
 let timerStarted = false;
+let startTime; 
+let endTime;
 let textPassageDiv;
 let userInputTextArea;
 let timerDisplay;
 let fullText = "";
 let incorrectIndices = new Set();
 let highlightIndex = 0;
+let testResults = getItemsFromLocalStorage("typingTestResults");
+const resultsContainer = document.getElementById("results-container");
+console.log(resultsContainer);
+
 
 // const handleTyping = (passage, duration, mainTestArea) = {
 //   // Create text passage container
@@ -22,7 +30,7 @@ let highlightIndex = 0;
 function handleUserInput() {
   if (!timerStarted) {
     timerStarted = true;
-    startTime = getCurrentDateTime();
+    startTime = Date.now();
     timer = setInterval(updateTimer, 1000);
   }
   updateDisplayedText(userInputTextArea.value);
@@ -114,7 +122,25 @@ function updateDisplayedText(userText) {
 function endTest() {
   userInputTextArea.disabled = true;
   timerDisplay.textContent = "Time's up!";
-  endTime = getCurrentDateTime();
+  endTime = Date.now();
+  alert("Test ended");
+  let typedWords = userInputTextArea.value.trim().split(/\s+/);
+  typedWords = typedWords.filter(w => w !== "");
+  const totalTypedCount = typedWords.length;
+  const timeSpentSeconds = (endTime - startTime) / 1000;
+  console.log(totalTypedCount, timeSpentSeconds);
+  const wpm = calculateWPM(totalTypedCount, timeSpentSeconds);
+  console.log(wpm);
+  const resultEntry = {
+    date: getCurrentDateTime(),
+    duration: timeLeft <= 0 ? "Completed full time" : `Finished early (${timeLeft}s left)`,
+    totalTyped: totalTypedCount,
+    wpm
+  };
+  saveToLocalStorageTestResult("typingTestResults", resultEntry);
+  testResults = getItemsFromLocalStorage("typingTestResults");
+  renderResults();
+
 }
 
 function getCurrentDateTime() {
@@ -145,6 +171,7 @@ export const typingTest = (mainTestArea, testSelect, testDuration) => {
              const testTittle = testSelect;
              testDuration = parseInt(testDuration);
              timeLeft = testDuration;
+             timerDisplay.textContent = `Time Left: ${timeLeft}`;
              
              fullText = getSingleTest(testTittle);
 
@@ -157,3 +184,20 @@ export const typingTest = (mainTestArea, testSelect, testDuration) => {
         }
     });
 };
+
+export function renderResults() {
+  resultsContainer.innerHTML = "";
+  testResults.forEach((result, index) => {
+    const div = document.createElement("div");
+    div.classList.add("result-entry");
+    div.innerHTML = `
+      <p><strong>Test #${index + 1}</strong></p>
+      <p>Date: ${result.date}</p>
+      <p>Words Typed: ${result.totalTyped}</p>
+      <p>WPM: ${result.wpm}</p>
+      <p>Note: ${result.duration}</p>
+      <button data-index="${index}">Delete</button>
+    `;
+    resultsContainer.appendChild(div);
+  });
+}

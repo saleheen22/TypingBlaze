@@ -19,13 +19,13 @@
     <aside class="nav">
       <img class="logo" src="./assets/logo.png" alt="typingblaze-logo">
       <ul>
-        <li id="typing-test">
+        <li class="bg" id="typing-test">
           Typing Test
         </li>
-        <li id="create-custom-tests">
+        <li class="bg" id="create-custom-tests">
           Create your own practice tests
         </li>
-        <li>
+        <li class="bg">
           Check all your Tests
         </li>
       </ul>
@@ -34,34 +34,14 @@
     <!-- MIDDLE AREA -->
     <main class="test" id="main-test-area">
       <!-- Default home screen is the "standard" test UI -->
-      <h2 class="test-header">Test Your typing genius!!</h2>
-     
-  
-      <label id="choose-test-label" for="test-select">Choose a Test</label>
-      <select id="test-select"></select>
-
-      <label id="test-description" for="test-duration">Choose your Test Duration</label>
-      <div class="custom-select">
-        <select name="typing test" id="test-duration">
-          <option value="60">1 Minute</option>
-          <option value="180">3 Minute</option>
-          <option value="300">5 Minute</option>
-        </select>
-      </div>
-
-      <button id="start-test">Start Test</button>
-    </main>
-
+      
+      </main>
     <!-- RIGHT SIDE: TIMER, RESULTS, CUSTOM TESTS CARDS -->
     <aside class="timer-result">
-      
+      <h3>Your Results</h3>
       <div id="results-container"></div>
 
-      <!-- Custom Test Cards -->
-      <div id="user-tests-container">
-        <h3>Your Results</h3>
-        <div id="custom-tests-cards"></div>
-      </div>
+    
     </aside>
   </div>
 
