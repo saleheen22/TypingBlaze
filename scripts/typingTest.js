@@ -1,4 +1,4 @@
-import {  getItemsFromLocalStorage, saveToLocalStorageTestResult } from "./localStorage.js";
+import {  deleteCustomTest, getItemsFromLocalStorage, saveToLocalStorageTestResult } from "./localStorage.js";
 import { getSingleTest } from "./utils/getTests.js";
 import { calculateWPM } from "./utils/TestResult.js";
 
@@ -186,7 +186,10 @@ export const typingTest = (mainTestArea, testSelect, testDuration) => {
 };
 
 export function renderResults() {
+  // Get the latest results from local storage.
+  testResults = getItemsFromLocalStorage("typingTestResults");
   resultsContainer.innerHTML = "";
+  
   testResults.forEach((result, index) => {
     const div = document.createElement("div");
     div.classList.add("result-entry");
@@ -201,3 +204,16 @@ export function renderResults() {
     resultsContainer.appendChild(div);
   });
 }
+
+// Attach event delegation on the results container.
+resultsContainer.addEventListener('click', (e) => {
+  // Check if a delete button was clicked.
+  if (e.target.tagName === 'BUTTON' && e.target.hasAttribute("data-index")) {
+    const indx = e.target.getAttribute("data-index");
+    // Call deleteCustomTest from localStorage.js to delete the selected result.
+    deleteCustomTest("typingTestResults", indx);
+    alert("Result deleted successfully");
+    // Re-render the updated results.
+    renderResults();
+  }
+});
