@@ -7,7 +7,7 @@ const renderMainAreaUI = (mainTestArea) => {
     const allTests = getAllTests();
     
     mainTestArea.innerHTML = `
-    <h2 class="test-header">Test Your typing genius!!</h2>
+    <h2 class="test-header">Test Your Typing Genius!!</h2>
  
       <label id="choose-test-label" for="test-select">Choose a Test</label>
       <select id="test-select">
@@ -19,9 +19,10 @@ const renderMainAreaUI = (mainTestArea) => {
       <label id="test-description" for="test-duration">Choose your Test Duration</label>
       <div class="custom-select">
         <select name="typing test" id="test-duration">
-          <option value="10">1 Minute</option>
+          <option value="60">1 Minute</option>
           <option value="180">3 Minute</option>
           <option value="300">5 Minute</option>
+          <option value="10">10 Sec</option>
         </select>
       </div>
 

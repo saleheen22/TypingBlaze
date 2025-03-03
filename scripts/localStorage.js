@@ -20,4 +20,5 @@ export const saveToLocalStorageTestResult = (key, testResult) => {
           existingTests.splice(index, 1);
           localStorage.setItem(key, JSON.stringify(existingTests));
         }
+       
       };

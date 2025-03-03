@@ -35,8 +35,9 @@ export const loadCustomTests = () => {
     deleteBtn.textContent = "Delete";
     deleteBtn.addEventListener("click", () => {
       deleteCustomTest("customTests", index);
-      alert("Test deleted successfully");
+      
       loadCustomTests();
+      alert("Test deleted successfully");
     });
 
     // Append both buttons into the container.

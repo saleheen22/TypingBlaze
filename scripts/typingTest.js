@@ -140,6 +140,12 @@ function endTest() {
   saveToLocalStorageTestResult("typingTestResults", resultEntry);
   testResults = getItemsFromLocalStorage("typingTestResults");
   renderResults();
+  fullText = "";
+  userInputTextArea.value = "";
+  // textPassageDiv.innerHTML = "";
+  highlightIndex = 0;
+  incorrectIndices.clear();
+  timerStarted = false;
 
 }
 
