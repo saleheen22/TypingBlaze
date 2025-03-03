@@ -37,7 +37,7 @@ function handleUserInput() {
 }
 function updateTimer() {
   timeLeft--;
-  timerDisplay.textContent = `Time Left: ${timeLeft}`;
+  timerDisplay.textContent = `Time Left: ${timeLeft} s`;
   if (timeLeft <= 0) {
     clearInterval(timer);
     endTest();
@@ -177,7 +177,7 @@ export const typingTest = (mainTestArea, testSelect, testDuration) => {
              const testTittle = testSelect;
              testDuration = parseInt(testDuration);
              timeLeft = testDuration;
-             timerDisplay.textContent = `Time Left: ${timeLeft}`;
+             timerDisplay.textContent = `Time Left: ${timeLeft} s`;
              
              fullText = getSingleTest(testTittle);
 
